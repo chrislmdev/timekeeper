@@ -9,7 +9,8 @@ Native Salesforce time tracking for **hybrid on-prem / commercial-style** labor,
 - **User defaults**: `CD_Default_Job_Role__c`, `CD_Default_Labor_Pool__c` on User (optional; filled on insert by Apex when the time line leaves them blank). A lookup default project on User is not used—Salesforce blocks or rejects that pattern in many orgs; pick **Project** on each line or add a Screen Flow later.
 - **Automation**: `Time_Entry_Before` trigger + `TimeEntryRateService` stamps `Rate_Applied__c` from the best matching rate card (offering from project + role + pool + work date). `Extended_Amount__c` is a formula (`Hours__c * Rate_Applied__c`).
 - **Lightning app**: **Cost Development App** (`Cost_Development`).
-- **Experience Cloud form**: LWC **`timeEntryPortal`** (label **CD Time Entry Portal**) — single-page log form using UI API + `createRecord`; Apex **`TimeEntryPortalController`** for project search. Assign **`Cost_Development_Experience_Logger`** to portal users. Site and Builder steps: [docs/experience-site-setup.md](docs/experience-site-setup.md).
+- **Log Time UI (internal)**: Lightning **App Page** **`CD_Log_Time`** on tab **Log Time** inside the **Cost Development App** — same **`timeEntryPortal`** LWC (no separate website). After deploy and permission set assignment: **App Launcher** → **Cost Development App** → **Log Time** tab.
+- **Experience Cloud form** (optional): same LWC can be placed on an Experience page; see [docs/experience-site-setup.md](docs/experience-site-setup.md). Assign **`Cost_Development_Experience_Logger`** to portal users.
 - **Permission sets**: **Cost Development Admin**, **Cost Development Logger** (no Rate Card tab/object access), **Cost Development Experience Logger** (portal + `Account` read for labels; no Rate Card).
 
 ## Deploy
@@ -25,7 +26,7 @@ sf apex run test --tests TimeEntryRateServiceTest --tests TimeEntryPortalControl
 After deploy:
 
 1. Assign **Cost Development Admin** or **Cost Development Logger** to pilot users.
-2. Open **App Launcher** → **Cost Development App**.
+2. Open **App Launcher** → **Cost Development App** → **Log Time** tab for the streamlined form (or use **Projects** / **CD Time Entries** tabs for standard lists).
 3. Create **CD Rate Cards** (Admin) for each **Offering + Job Role + Labor Pool** with **Effective Start** (and optional **Effective End**).
 4. Create **Accounts** (customers) and **CD Projects** (set **Offering** to match rate cards).
 5. Log **CD Time Entries** (hours, category, role, pool, optional ServiceNow fields).

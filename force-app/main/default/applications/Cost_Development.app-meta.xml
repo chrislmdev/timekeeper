@@ -11,6 +11,7 @@
     <label>Cost Development App</label>
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
+    <tabs>CD_Log_Time</tabs>
     <tabs>Project__c</tabs>
     <tabs>Time_Entry__c</tabs>
     <tabs>Rate_Card__c</tabs>

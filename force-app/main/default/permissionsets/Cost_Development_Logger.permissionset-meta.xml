@@ -110,6 +110,10 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <tabSettings>
+        <tab>CD_Log_Time</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>Project__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>

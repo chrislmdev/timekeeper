@@ -2,6 +2,8 @@
 
 This guide wires the **`timeEntryPortal`** LWC into an authenticated **Experience Cloud** site so users get a simple form while inserts still hit **`Time_Entry__c`** (including the `Time_Entry_Before` trigger and rate stamping).
 
+**Internal Salesforce:** the same component is already on the **Cost Development App** tab **Log Time** (Lightning page **`CD_Log_Time`**) after you deploy this repo—no Experience site required for that path.
+
 ## Prerequisites
 
 - **Digital Experiences** enabled for the org (and appropriate **Experience Cloud** licenses for your member model).
