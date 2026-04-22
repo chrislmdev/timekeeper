@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Operations</fullName>
+        <default>true</default>
+        <label>Operations</label>
+    </customValue>
+    <customValue>
+        <fullName>Overhead</fullName>
+        <default>false</default>
+        <label>Overhead</label>
+    </customValue>
+    <masterLabel>Labor Pool</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

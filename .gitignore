@@ -1,0 +1,6 @@
+.sf/
+**/__pycache__/
+*.log
+.DS_Store
+.idea/
+.vscode/settings.local.json

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Core_fields_required</fullName>
+    <active>true</active>
+    <description>Offering, role, pool, effective start, and hourly rate are required.</description>
+    <errorConditionFormula>OR(
+  ISBLANK(TEXT(Offering__c)),
+  ISBLANK(TEXT(Job_Role__c)),
+  ISBLANK(TEXT(Labor_Pool__c)),
+  ISBLANK(Effective_Start__c),
+  ISBLANK(Hourly_Rate__c)
+)</errorConditionFormula>
+    <errorMessage>Offering, job role, labor pool, effective start, and hourly rate are required.</errorMessage>
+</ValidationRule>

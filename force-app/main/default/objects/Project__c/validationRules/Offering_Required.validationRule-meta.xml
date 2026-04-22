@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Offering_Required</fullName>
+    <active>true</active>
+    <description>Offering is required for rate resolution and reporting.</description>
+    <errorConditionFormula>ISBLANK(TEXT(Offering__c))</errorConditionFormula>
+    <errorDisplayField>Offering__c</errorDisplayField>
+    <errorMessage>Select an offering for this project.</errorMessage>
+</ValidationRule>

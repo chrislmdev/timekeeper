@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Core_fields_required</fullName>
+    <active>true</active>
+    <description>Project, work date, hours, category, role, and pool are required for a valid time line.</description>
+    <errorConditionFormula>OR(
+  ISBLANK(Project__c),
+  ISBLANK(Work_Date__c),
+  ISBLANK(Hours__c),
+  ISBLANK(TEXT(Task_Category__c)),
+  ISBLANK(TEXT(Job_Role__c)),
+  ISBLANK(TEXT(Labor_Pool__c))
+)</errorConditionFormula>
+    <errorMessage>Project, work date, hours, task category, job role, and labor pool are required.</errorMessage>
+</ValidationRule>

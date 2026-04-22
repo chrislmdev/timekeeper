@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Commercial_Cloud</fullName>
+        <default>true</default>
+        <label>Commercial Cloud</label>
+    </customValue>
+    <customValue>
+        <fullName>Hybrid_On_Prem</fullName>
+        <default>false</default>
+        <label>Hybrid On-Prem</label>
+    </customValue>
+    <masterLabel>Offering</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

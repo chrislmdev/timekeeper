@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>SysAdmin</fullName>
+        <default>false</default>
+        <label>System Administrator</label>
+    </customValue>
+    <customValue>
+        <fullName>DBA</fullName>
+        <default>false</default>
+        <label>Database Administrator</label>
+    </customValue>
+    <customValue>
+        <fullName>Engineer</fullName>
+        <default>true</default>
+        <label>Engineer</label>
+    </customValue>
+    <customValue>
+        <fullName>TechLead</fullName>
+        <default>false</default>
+        <label>Tech Lead</label>
+    </customValue>
+    <customValue>
+        <fullName>Manager</fullName>
+        <default>false</default>
+        <label>Manager</label>
+    </customValue>
+    <customValue>
+        <fullName>Architect</fullName>
+        <default>false</default>
+        <label>Architect</label>
+    </customValue>
+    <masterLabel>Job Role</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

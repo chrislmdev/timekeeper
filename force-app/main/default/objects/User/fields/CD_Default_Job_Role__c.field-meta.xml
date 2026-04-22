@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CD_Default_Job_Role__c</fullName>
+    <description>Default job role for new CD Time Entries owned by this user.</description>
+    <label>CD Default Job Role</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Job_Role</valueSetName>
+    </valueSet>
+</CustomField>
