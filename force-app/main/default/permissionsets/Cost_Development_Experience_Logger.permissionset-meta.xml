@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <description>Full access to CD Projects, Time Entries, and Rate Cards for cost development leads and finance.</description>
+    <description>Access for logging time via Experience Cloud (CD Time Entry Portal LWC). Assign to users who use the portal; combine with your Experience member profile as needed.</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>Cost Development Admin</label>
+    <label>Cost Development Experience Logger</label>
     <classAccesses>
         <apexClass>TimeEntryPortalController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <applicationVisibilities>
-        <application>Cost_Development</application>
-        <visible>true</visible>
-    </applicationVisibilities>
     <fieldPermissions>
         <editable>true</editable>
         <field>Project__c.Account__c</field>
@@ -83,36 +79,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Rate_Card__c.Effective_End__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Rate_Card__c.Effective_Start__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Rate_Card__c.Hourly_Rate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Rate_Card__c.Job_Role__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Rate_Card__c.Labor_Pool__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Rate_Card__c.Offering__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>User.CD_Default_Job_Role__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -122,11 +88,20 @@
         <readable>true</readable>
     </fieldPermissions>
     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Account</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
+        <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Project__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -135,29 +110,8 @@
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Time_Entry__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Rate_Card__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <tabSettings>
-        <tab>Project__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Time_Entry__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Rate_Card__c</tab>
-        <visibility>Visible</visibility>
-    </tabSettings>
 </PermissionSet>

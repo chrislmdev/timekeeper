@@ -9,7 +9,8 @@ Native Salesforce time tracking for **hybrid on-prem / commercial-style** labor,
 - **User defaults**: `CD_Default_Job_Role__c`, `CD_Default_Labor_Pool__c` on User (optional; filled on insert by Apex when the time line leaves them blank). A lookup default project on User is not used—Salesforce blocks or rejects that pattern in many orgs; pick **Project** on each line or add a Screen Flow later.
 - **Automation**: `Time_Entry_Before` trigger + `TimeEntryRateService` stamps `Rate_Applied__c` from the best matching rate card (offering from project + role + pool + work date). `Extended_Amount__c` is a formula (`Hours__c * Rate_Applied__c`).
 - **Lightning app**: **Cost Development App** (`Cost_Development`).
-- **Permission sets**: **Cost Development Admin**, **Cost Development Logger** (no Rate Card tab/object access).
+- **Experience Cloud form**: LWC **`timeEntryPortal`** (label **CD Time Entry Portal**) — single-page log form using UI API + `createRecord`; Apex **`TimeEntryPortalController`** for project search. Assign **`Cost_Development_Experience_Logger`** to portal users. Site and Builder steps: [docs/experience-site-setup.md](docs/experience-site-setup.md).
+- **Permission sets**: **Cost Development Admin**, **Cost Development Logger** (no Rate Card tab/object access), **Cost Development Experience Logger** (portal + `Account` read for labels; no Rate Card).
 
 ## Deploy
 
@@ -18,7 +19,7 @@ Prerequisites: [Salesforce CLI](https://developer.salesforce.com/tools/salesforc
 ```bash
 sf org login web --alias cd-dev --set-default
 sf project deploy start --source-dir force-app --target-org cd-dev
-sf apex run test --tests TimeEntryRateServiceTest --target-org cd-dev --result-format human --code-coverage --wait 10
+sf apex run test --tests TimeEntryRateServiceTest --tests TimeEntryPortalControllerTest --target-org cd-dev --result-format human --code-coverage --wait 10
 ```
 
 After deploy:
@@ -41,7 +42,7 @@ This package is **self-contained metadata and in-org Apex** only. It does **not*
 
 - **HTTP callouts** (no `HttpRequest`, no callout-enabled Apex)
 - **Named Credentials**, **Remote Site Settings**, or **CORS** entries for third-party hosts
-- **Lightning Web Components** or **static resources** that load fonts, scripts, or styles from CDNs or other external sites
+- **Custom** LWCs or **static resources** that load fonts, scripts, or styles from **third-party** CDNs (the included **`timeEntryPortal`** uses **Lightning base components** and in-org APIs only)
 - **External Services** integrations
 
 Metadata files use the standard XML namespace string `http://soap.sforce.com/2006/04/metadata`; that is a **schema identifier**, not a runtime request to the internet.
@@ -54,4 +55,5 @@ The **Lightning Experience shell** (fonts, Lightning components, etc.) is loaded
 
 - **Sharing**: `Time_Entry__c` is **Private** OWD (owner-based). **Logger** has no **View All** on time entries. Adjust sharing rules later for managers if needed.
 - **Projects** use **Public Read/Write** OWD so teams can select projects; tighten if your org requires private projects.
-- **Screen Flow** for the utility bar was deferred for v1; use list views and standard create forms.
+- **Screen Flow** for the utility bar was deferred for v1; use list views, standard create forms, or the **Experience** form in [docs/experience-site-setup.md](docs/experience-site-setup.md).
+- **Experience site metadata** (`Network`, `ExperienceBundle`) is created in the org UI then optionally **retrieved** into git—see the doc’s “Version-control the site” section—because names and templates vary by org.

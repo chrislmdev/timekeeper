@@ -1,0 +1,73 @@
+<template>
+    <lightning-card title="Log time" icon-name="utility:clock">
+        <div class="slds-p-around_medium slds-grid slds-wrap slds-gutters">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1">
+                <lightning-input
+                    type="search"
+                    label="Find project"
+                    value={projectSearchTerm}
+                    onchange={handleProjectSearch}
+                ></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1">
+                <lightning-combobox
+                    name="project"
+                    label="Project"
+                    value={projectId}
+                    options={projectOptions}
+                    onchange={handleProjectChange}
+                    required
+                ></lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-input type="date" label="Work date" value={workDate} onchange={handleWorkDate} required></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-input type="number" label="Hours" step="0.25" min="0" value={hours} onchange={handleHours} required></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-1">
+                <lightning-combobox
+                    name="taskCategory"
+                    label="Task category"
+                    value={taskCategory}
+                    options={taskCategoryOptions}
+                    onchange={handleTaskCategory}
+                    required
+                ></lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-combobox
+                    name="jobRole"
+                    label="Job role"
+                    value={jobRole}
+                    options={jobRoleOptions}
+                    onchange={handleJobRole}
+                    required
+                ></lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-combobox
+                    name="laborPool"
+                    label="Labor pool"
+                    value={laborPool}
+                    options={laborPoolOptions}
+                    onchange={handleLaborPool}
+                    required
+                ></lightning-combobox>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-input label="ServiceNow ticket #" value={ticketNumber} onchange={handleTicketNumber} max-length="100"></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-input type="url" label="ServiceNow ticket URL" value={ticketUrl} onchange={handleTicketUrl}></lightning-input>
+            </div>
+            <div class="slds-col slds-size_1-of-1">
+                <lightning-textarea label="Notes" value={notes} onchange={handleNotes} max-length="32000"></lightning-textarea>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-m-top_medium">
+                <lightning-button variant="brand" label="Submit" onclick={handleSubmit} disabled={submitting} class="slds-m-right_small"></lightning-button>
+                <lightning-button label="Clear form" onclick={handleReset} disabled={submitting}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+</template>

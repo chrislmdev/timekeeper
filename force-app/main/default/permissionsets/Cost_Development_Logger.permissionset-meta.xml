@@ -3,6 +3,10 @@
     <description>Create and manage own CD time entries; maintain projects without rate card administration.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Cost Development Logger</label>
+    <classAccesses>
+        <apexClass>TimeEntryPortalController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <applicationVisibilities>
         <application>Cost_Development</application>
         <visible>true</visible>
